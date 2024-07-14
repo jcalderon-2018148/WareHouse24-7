@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import './styleUser.css'
 import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -87,7 +87,7 @@ export const UpdateUserPage = () => {
     const handlePhone = (e) => {
         const value = e.target.value;
         if (value.length <= 8) {
-            setUsername(value);
+            handleForm(e);
         }
     }
 
