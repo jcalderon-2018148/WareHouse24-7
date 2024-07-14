@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { NavbarHome } from '../../components/NavbarHome'
-import './LoginStyle.css'
+import './loginStyle.css'
 import user from '../../assets/user.png'
 import { auto } from '@popperjs/core'
 import { AuthContext } from '../../index'
