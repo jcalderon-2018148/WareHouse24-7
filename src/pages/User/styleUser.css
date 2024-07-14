@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Coolvetica;
+    src: url('../../fonts/coolvetica rg.otf');
+}
+
+.form-label{
+    font-family: Coolvetica;
+    font-size: 1.25rem;
+}
