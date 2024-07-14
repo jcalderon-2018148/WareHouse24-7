@@ -24,7 +24,7 @@ export const BranchPage = () => {
                 showDenyButton: true,
             }).then(async(result)=>{
                 if(result.isConfirmed) {
-                    const { data } = await axios.delete(`https://ware-house24-7-api.vercel.app//branch/delete/${id}`, {headers: headers}).catch(
+                    const { data } = await axios.delete(`https://ware-house24-7-api.vercel.app/branch/delete/${id}`, {headers: headers}).catch(
                             (err)=>{
                                 Swal.fire(err.response.data.message, '', 'error')
                             })
@@ -42,11 +42,11 @@ export const BranchPage = () => {
 
     const getBranches = async() => {
         try {
-            const { data } = await axios('https://ware-house24-7-api.vercel.app//branch/get', {headers: headers})
+            const { data } = await axios('https://ware-house24-7-api.vercel.app/branch/get', {headers: headers})
 
             for(let i = 0; i < data.branches.length; i++){
                 if(data.branches[i].photo){
-                    let img = await axios(`https://ware-house24-7-api.vercel.app//branch/getImg/${data.branches[i].photo}`, {headers: headers})
+                    let img = await axios(`https://ware-house24-7-api.vercel.app/branch/getImg/${data.branches[i].photo}`, {headers: headers})
                     data.branches[i].photo = img.request.responseURL
                 }continue
             }

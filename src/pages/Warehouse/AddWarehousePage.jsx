@@ -63,7 +63,7 @@ export const AddWarehousePage = () => {
 
     const getServices = async () => {
         try {
-            const { data } = await axios('https://ware-house24-7-api.vercel.app//service/get', { headers: headers })
+            const { data } = await axios('https://ware-house24-7-api.vercel.app/service/get', { headers: headers })
             setServices(data.services);
         } catch (err) {
             console.error(err);
@@ -72,7 +72,7 @@ export const AddWarehousePage = () => {
 
     const getBranches = async () => {
         try {
-            const { data } = await axios('https://ware-house24-7-api.vercel.app//branch/get', { headers: headers })
+            const { data } = await axios('https://ware-house24-7-api.vercel.app/branch/get', { headers: headers })
             setBranches(data.branches)
         } catch (err) {
             console.error(err);
@@ -82,10 +82,10 @@ export const AddWarehousePage = () => {
     const add = async (e) => {
         try {
             e.preventDefault()
-            const { data } = await axios.post('https://ware-house24-7-api.vercel.app//warehouse/add', form, { headers: headers })
+            const { data } = await axios.post('https://ware-house24-7-api.vercel.app/warehouse/add', form, { headers: headers })
             if (img) {
                 await axios.put(
-                    `https://ware-house24-7-api.vercel.app//warehouse/upload-img/${data.warehouse._id}`,
+                    `https://ware-house24-7-api.vercel.app/warehouse/upload-img/${data.warehouse._id}`,
                     img,
                     {
                         headers: { 'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data' }

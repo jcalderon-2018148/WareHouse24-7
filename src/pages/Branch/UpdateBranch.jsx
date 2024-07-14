@@ -33,7 +33,7 @@ export const UpdateBranchPage = () => {
 
     const getBranch = async()=>{
         try {
-            const { data } = await axios(`https://ware-house24-7-api.vercel.app//branch/get/${id}`, {headers: headers});
+            const { data } = await axios(`https://ware-house24-7-api.vercel.app/branch/get/${id}`, {headers: headers});
             setBranch(data.branch);
         } catch (err) {
             console.error(err);
@@ -50,8 +50,8 @@ export const UpdateBranchPage = () => {
                 capitalGain: document.getElementById('capitalGain').value,
                 state: state
             }
-            const { data } = await axios.put(`https://ware-house24-7-api.vercel.app//branch/update/${id}`, form, { headers: headers })
-            if(photo)await axios.put(`https://ware-house24-7-api.vercel.app//branch/uploadImg/${data.updateBranch._id}`, photo, { headers: {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} })
+            const { data } = await axios.put(`https://ware-house24-7-api.vercel.app/branch/update/${id}`, form, { headers: headers })
+            if(photo)await axios.put(`https://ware-house24-7-api.vercel.app/branch/uploadImg/${data.updateBranch._id}`, photo, { headers: {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} })
 
             if(data.message){
                 Swal.fire({

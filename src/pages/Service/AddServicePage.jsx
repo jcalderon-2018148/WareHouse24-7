@@ -25,7 +25,7 @@ export const AddServicePage = () => {
 
     const addService = async() =>{
         try {
-            const {data} = await axios.post('https://ware-house24-7-api.vercel.app//service/add',service,{headers:headers})
+            const {data} = await axios.post('https://ware-house24-7-api.vercel.app/service/add',service,{headers:headers})
             Swal.fire({
                 title:data.message,
                 grow:'row',

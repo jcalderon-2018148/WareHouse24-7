@@ -35,7 +35,7 @@ export const AssignWarehousePage = () => {
 
     const getServices = async () => {
         try {
-            const { data } = await axios('https://ware-house24-7-api.vercel.app//service/get', { headers: headers })
+            const { data } = await axios('https://ware-house24-7-api.vercel.app/service/get', { headers: headers })
             setServices(data.services);
         } catch (err) {
             console.error(err);
@@ -44,7 +44,7 @@ export const AssignWarehousePage = () => {
 
     const getClients = async () => {
         try {
-            const { data } = await axios('https://ware-house24-7-api.vercel.app//warehouse/get-clients', { headers: headers })
+            const { data } = await axios('https://ware-house24-7-api.vercel.app/warehouse/get-clients', { headers: headers })
             setClients(data.clients)
         } catch (err) {
             console.error(err);
@@ -54,7 +54,7 @@ export const AssignWarehousePage = () => {
     const assign = async (e) => {
         try {
             e.preventDefault()
-            const { data } = await axios.put(`https://ware-house24-7-api.vercel.app//warehouse/assign/${id}`, form, { headers: headers })
+            const { data } = await axios.put(`https://ware-house24-7-api.vercel.app/warehouse/assign/${id}`, form, { headers: headers })
             if (data.message) {
                 Swal.fire({
                     title: data.message,

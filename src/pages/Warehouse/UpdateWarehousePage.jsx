@@ -48,7 +48,7 @@ export const UpdateWarehousePage = () => {
 
     const getBranches = async () => {
         try {
-            const { data } = await axios('https://ware-house24-7-api.vercel.app//branch/get', { headers: headers })
+            const { data } = await axios('https://ware-house24-7-api.vercel.app/branch/get', { headers: headers })
             setBranches(data.branches)
         } catch (err) {
             console.error(err);
@@ -58,10 +58,10 @@ export const UpdateWarehousePage = () => {
     const upda = async (e) => {
         try {
             e.preventDefault()
-            const { data } = await axios.put(`https://ware-house24-7-api.vercel.app//warehouse/update/${id}`, form, { headers: headers })
+            const { data } = await axios.put(`https://ware-house24-7-api.vercel.app/warehouse/update/${id}`, form, { headers: headers })
             if (img) {
                 await axios.put(
-                    `https://ware-house24-7-api.vercel.app//warehouse/upload-img/${id}`,
+                    `https://ware-house24-7-api.vercel.app/warehouse/upload-img/${id}`,
                     img,
                     {
                         headers: { 'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data' }

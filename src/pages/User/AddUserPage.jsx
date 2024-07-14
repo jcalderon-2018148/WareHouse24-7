@@ -45,8 +45,8 @@ export const AddUserPage = () => {
 
     const add = async () => {
         try {
-            const { data } = await axios.post('https://ware-house24-7-api.vercel.app//user/addAccount', form, { headers: headers })
-            if(photo) await axios.put(`https://ware-house24-7-api.vercel.app//user/uploadImg/${data.user._id}`, photo, { headers: {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} })
+            const { data } = await axios.post('https://ware-house24-7-api.vercel.app/user/addAccount', form, { headers: headers })
+            if(photo) await axios.put(`https://ware-house24-7-api.vercel.app/user/uploadImg/${data.user._id}`, photo, { headers: {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} })
 
             if(data.message) {
                 Swal.fire({
