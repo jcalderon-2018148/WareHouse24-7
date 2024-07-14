@@ -13,7 +13,7 @@ export const ServicePage = () => {
     const [services,setServices] = useState([])
     const getServices = async() =>{
         try {
-            const {data} = await axios('http://localhost:3022/service/get',{headers:headers})
+            const {data} = await axios('https://ware-house24-7-api.vercel.app//service/get',{headers:headers})
             setServices(data.services);          
         } catch (err) {
             console.error(err);

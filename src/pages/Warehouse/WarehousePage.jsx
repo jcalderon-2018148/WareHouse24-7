@@ -18,11 +18,11 @@ export const WarehousePage = () => {
 
     const getWarehouse = async () => {
         try {
-            const { data } = await axios('http://localhost:3022/warehouse/get', { headers: headers })
+            const { data } = await axios('https://ware-house24-7-api.vercel.app//warehouse/get', { headers: headers })
             if (data.warehouses) {
                 for (let i = 0; i < data.warehouses.length; i++) {
                     if (data.warehouses[i].photo) {
-                        let img = await axios(`http://localhost:3022/warehouse/get-img/${data.warehouses[i].photo}`, { headers: headers })
+                        let img = await axios(`https://ware-house24-7-api.vercel.app//warehouse/get-img/${data.warehouses[i].photo}`, { headers: headers })
                         console.log(img.request.responseURL);
                         data.warehouses[i].photo = img.request.responseURL
                     }
@@ -46,7 +46,7 @@ export const WarehousePage = () => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.delete(`http://localhost:3022/warehouse/delete/${id}`, { headers: headers })
+                    const { data } = await axios.delete(`https://ware-house24-7-api.vercel.app//warehouse/delete/${id}`, { headers: headers })
                     getWarehouse()
                     Swal.fire(`${data.message}`, '', 'success')
                 } else {
@@ -77,7 +77,7 @@ export const WarehousePage = () => {
                 showDenyButton: true,
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const { data } = await axios.put(`http://localhost:3022/warehouse/deallocate/${id}`, {}, { headers: headers })
+                    const { data } = await axios.put(`https://ware-house24-7-api.vercel.app//warehouse/deallocate/${id}`, {}, { headers: headers })
                     getWarehouse()
                     Swal.fire(`${data.message}`, '', 'success')
                 } else {

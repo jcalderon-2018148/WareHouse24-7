@@ -24,7 +24,7 @@ export const UpdateUserPage = () => {
 
     const getUser = async() => {
         try {
-            let { data } = await axios(`http://localhost:3022/user/get/${id}`, {headers: headers})
+            let { data } = await axios(`https://ware-house24-7-api.vercel.app//user/get/${id}`, {headers: headers})
 
             if(data.user) {
                 setUser(data.user)
@@ -57,11 +57,11 @@ export const UpdateUserPage = () => {
                 phone: document.getElementById('phone').value,
                 username: document.getElementById('username').value
             }
-            let { data } = await axios.put(`http://localhost:3022/user/update/${id}`, datos, {headers: headers})
+            let { data } = await axios.put(`https://ware-house24-7-api.vercel.app//user/update/${id}`, datos, {headers: headers})
 
             if(photo) {
                 await axios.put(
-                    `http://localhost:3022/user/uploadImg/${data.user._id}`, 
+                    `https://ware-house24-7-api.vercel.app//user/uploadImg/${data.user._id}`, 
                     photo, 
                     { headers: 
                         {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} 

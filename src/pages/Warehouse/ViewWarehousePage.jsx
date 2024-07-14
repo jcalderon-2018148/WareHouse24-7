@@ -13,7 +13,7 @@ export const ViewWarehousePage = () => {
 
     const getWarehouse = async () => {
         try {
-            const { data } = await axios(`http://localhost:3022/warehouse/get/${id}`, { headers: headers })
+            const { data } = await axios(`https://ware-house24-7-api.vercel.app//warehouse/get/${id}`, { headers: headers })
             console.log(data);
             if (data.warehouse)
                 setWarehouse(data.warehouse)

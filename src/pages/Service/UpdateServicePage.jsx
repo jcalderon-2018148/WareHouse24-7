@@ -27,7 +27,7 @@ export const UpdateServicePage = () => {
 
     const getService = async() =>{
         try {
-            const {data} = await axios(`http://localhost:3022/service/getOne/${id}`,{headers:headers})
+            const {data} = await axios(`https://ware-house24-7-api.vercel.app//service/getOne/${id}`,{headers:headers})
             setServiceToUpdate(data.service)
         } catch (err) {
             console.error(err);
@@ -37,7 +37,7 @@ export const UpdateServicePage = () => {
 
     const updateService = async() =>{
         try {
-            const {data} = await axios.put(`http://localhost:3022/service/update/${id}`,service,{headers:headers})
+            const {data} = await axios.put(`https://ware-house24-7-api.vercel.app//service/update/${id}`,service,{headers:headers})
             Swal.fire({
                 title:data.message,
                 grow:'row',

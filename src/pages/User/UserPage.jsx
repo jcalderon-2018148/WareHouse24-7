@@ -24,7 +24,7 @@ export const UserPage = () => {
                 showDenyButton: true,
             }).then(async(result)=>{
                 if(result.isConfirmed) {
-                    const { data } = await axios.delete(`http://localhost:3022/user/delete/${id}`, {headers: headers}).catch(
+                    const { data } = await axios.delete(`https://ware-house24-7-api.vercel.app//user/delete/${id}`, {headers: headers}).catch(
                             (err)=>{
                                 Swal.fire(err.response.data.message, '', 'error')
                             })
@@ -42,11 +42,11 @@ export const UserPage = () => {
 
     const getUsers = async() => {
         try {
-            const { data } = await axios('http://localhost:3022/user/get', {headers: headers})
+            const { data } = await axios('https://ware-house24-7-api.vercel.app//user/get', {headers: headers})
 
             for(let i = 0; i < data.users.length; i++){
                 if(data.users[i].photo) {
-                    let img = await axios(`http://localhost:3022/user/getImg/${data.users[i].photo}`, {headers: headers})
+                    let img = await axios(`https://ware-house24-7-api.vercel.app//user/getImg/${data.users[i].photo}`, {headers: headers})
                     data.users[i].photo = img.request.responseURL
                 }
                 continue

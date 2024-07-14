@@ -54,8 +54,8 @@ export const AddBranchPage = () => {
 
     const add = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3022/branch/add', form, { headers: headers })
-            if(photo)await axios.put(`http://localhost:3022/branch/uploadImg/${data.branch._id}`, photo, { headers: {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} })
+            const { data } = await axios.post('https://ware-house24-7-api.vercel.app//branch/add', form, { headers: headers })
+            if(photo)await axios.put(`https://ware-house24-7-api.vercel.app//branch/uploadImg/${data.branch._id}`, photo, { headers: {'Authorization': localStorage.getItem('token'), 'Content-Type': 'multipart/form-data'} })
 
             if(data.message){
                 Swal.fire({
